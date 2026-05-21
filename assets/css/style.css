@@ -7,46 +7,130 @@
 	color: #ebebeb;
 }
 
+main {
+    margin-bottom: 30px;
+}
+
 .container {
-    max-width: 992px;
-    margin: 0 auto;
+	max-width: 992px;
+	margin: 0 auto;
 }
 
 h1 {
-    font-size: 4em;
-    font-weight: 900;
+	font-size: 4em;
+	font-weight: 900;
 }
 
 /* Griglia calendario */
 
 .day {
-    display: inline-block;
-    width: 14%;
-    height: 130px;
-    /* Per poter posizionare al centro il giorno, ho bisogno di position relative di questo div e position absolute del giorno */
-    position: relative;
-    border:  1px solid #0D6F83;
-    border-radius: 10px;
-    cursor: pointer;
+	display: inline-block;
+	width: 14%;
+	height: 130px;
+	/* Per poter posizionare al centro il giorno, ho bisogno di position relative di questo div e position absolute del giorno */
+	position: relative;
+	border: 1px solid #0d6f83;
+	border-radius: 10px;
+	cursor: pointer;
 }
 
-.day:hover, .day:hover h3 {
-    background-color: #15132e;
+.day:hover,
+.day:hover h3 {
+	background-color: #15132e;
 }
 
 .day h3 {
-    text-align: center;
-    margin: 0;
-    position: absolute;
-    top: 40%;
-    left: 0;
-    right: 0;
+	text-align: center;
+	margin: 0;
+	position: absolute;
+	top: 40%;
+	left: 0;
+	right: 0;
 }
 
-.currentDay, .currentDay:hover {
-    background-color: #FFC0CB;
+.currentDay,
+.currentDay:hover {
+	background-color: #ffc0cb;
 }
 
 .sunday {
-    color: red;
+	color: red;
+}
+
+/* Impegni */
+
+h2 {
+	font-size: 36px;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+
+h4 {
+	margin-bottom: 20px;
+}
+
+#addMeeting div {
+	display: inline-block;
+	vertical-align: bottom;
+	margin-right: 50px;
+}
+
+form {
+	display: inline;
+}
+
+input {
+	width: 130px;
+	height: 36px;
+	background-color: #0c0b1d;
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	color: #ebebeb;
+}
+
+#newMeetingDay {
+	display: inline-block;
+	min-height: 40px;
+}
+
+form button {
+	cursor: pointer;
+	background-color: #7a408a;
+	color: #ebebeb;
+	border: none;
+	border-radius: 5px;
+	width: 130px;
+	height: 36px;
+	padding: 10px;
+}
+
+#newMeetingName {
+	width: 200px;
+}
+
+#newMeetingTime::-webkit-calendar-picker-indicator {
+	background-color: #7a408a;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.selected {
+    border: 5px solid #7a408a;
+}
+
+/* Lista impegni */
+
+#appointments ul li {
+    font-size: 1.2em;
+}
+
+.daySelected {
+    height: 36px;
+    width: 36px;
+    font-size: 28px;
+    font-weight: 700;
+    background-color: #0c0b1d;
+    border-radius: 5px;
+    padding-left: 5px;
 }

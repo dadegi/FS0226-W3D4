@@ -49,6 +49,11 @@ const createDays = (daysNumber) => {
 		const dayCellDiv = document.createElement('div');
 		dayCellDiv.classList.add('day');
 		// Le celle dovranno essere cliccabili - DAFARE
+		dayCellDiv.addEventListener('click', function () {
+			unselectAllaDays(); // deselezionare il giorno selezionato prima
+			dayCellDiv.classList.add('selected');
+            changeMeetingDay(i);
+		});
 
 		// Creiamo il giorno
 		const cellValue = document.createElement('h3');
@@ -58,7 +63,7 @@ const createDays = (daysNumber) => {
 		}
 		// Scriviamo le domeniche in rosso
 		let thisDay = new Date(getYear, getMonth, i);
-		if (thisDay.getDay === 0) {
+		if (thisDay.getDay() === 0) {
 			cellValue.classList.add('sunday');
 		}
 
@@ -72,3 +77,16 @@ const createDays = (daysNumber) => {
 };
 
 createDays(dayInMonth());
+
+function unselectAllaDays() {
+    const previousSelected = document.querySelector('.selected');
+    if (previousSelected) {
+        previousSelected.classList.remove('selected');
+    }
+}
+
+function changeMeetingDay(i) {
+    const newMeetingDay = document.querySelector('#newMeetingDay');
+    newMeetingDay.textContent = i;
+    newMeetingDay.classList.add('daySelected');
+}
