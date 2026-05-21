@@ -1,6 +1,7 @@
 const now = new Date();
 const getYear = now.getFullYear();
 const getMonth = now.getMonth();
+const appointments = []; // conterrà gli appuntamenti già inseriti
 
 const monthNames = [
 	'Gennaio',
@@ -53,6 +54,12 @@ const createDays = (daysNumber) => {
 			unselectAllaDays(); // deselezionare il giorno selezionato prima
 			dayCellDiv.classList.add('selected');
             changeMeetingDay(i);
+            if (appointments[i] && appointments[i].length > 0) {
+                showAppointments(i);
+            } else {
+                const appointmentsDiv = document.querySelector('#appointments');
+                appointmentsDiv.style.display = 'none';
+            }
 		});
 
 		// Creiamo il giorno
